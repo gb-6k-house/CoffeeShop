@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>木柚咖啡</title>
+        <link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+        <link rel="stylesheet" type="text/css" href="./stylesheets/idangerous.swiper.css">
+        <style type="text/css">
+            .swiper-container { margin-top:0px;}
+            .swiper1 { width:100%; display:inline-block; background-size:cover;}
+            .swiper1 img { width:100%;}
+            .pagination { position:absolute; top:176px; z-index:19; text-align:center; width:100%;margin-top:-50px;}
+
+            .pool { width:100%; margin-top:10px; height:300px;}
+            .box_left_big {width: 46.25%; height:100%;float:left;}
+            .box_left_half{width: 46.25%; height:50%;float:left;}
+            .box_right_big {width: 53.75%; height:100%;float:left;}
+            .box_right_half {width:53.75%;height:50%;float:left;}
+        </style>
+    </head>
+
+<body>
+    <div class="swiper-container" style="height: 200.25px;">
+        <div class="swiper-wrapper" style="width: 1800px; height: 200.25px; transform: translate3d(-720px, 0px, 0px); transition-duration: 0.5s;">
+            <div class="swiper-slide" style="height: 200.25px; width: 360px;"> 
+                <a href="#" class="swiper1">
+                    <img class="swiper1l" src="./images/swiper1.jpg">
+                </a><!--第一个轮换内容 -->
+            </div>      
+            <div class="swiper-slide swiper-slide-visible swiper-slide-active" style="height: 200.25px; width: 360px;">
+                <a href="#" class="swiper1">
+                    <img class="swiper1l" src="./images/swiper2.jpg">
+                </a><!--第二个轮换内容 -->
+            </div> 
+            <div class="swiper-slide" style="height: 200.25px; width: 360px;"> 
+                <a href="#" class="swiper1">
+                    <img class="swiper1l" src="./images/swiper3.jpg">
+                </a><!--第三个轮换内容 -->
+            </div>
+        </div>
+    </div><!--轮换大图-->
+    <div class="pagination"> 
+        <span class="swiper-pagination-switch"></span>
+        <span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span>
+        <span class="swiper-pagination-switch"></span>
+    </div><!--轮换指示-->
+
+    <div class="pool" style="height: 189px">
+        <a class="box_left_big" href="#" style="background:url(./images/left_big.jpg) no-repeat center;background-size:cover;"></a>
+        <a class="box_right_half" href="./users/my" style="background:url(./images/right_half1.jpg) no-repeat center;background-size:cover;"></a>
+        <a class="box_right_half" href="#" style="background:url(./images/right_half2.jpg) no-repeat center;background-size:cover;"></a>
+    </div>
+
+    <div class="pool" style="height: 189px;margin-top: 20px;">
+        <a class="box_left_big" href="#" style="background:url(./images/left_big1.jpg) no-repeat center;background-size:cover;"></a>
+        <a class="box_right_big" href="#" style="background:url(./images/right_big.jpg) no-repeat center;background-size:cover;"></a>
+    </div>
+    <script src="./javascripts/idangerous.swiper-2.0.min.js" type="application/javascript"></script>
+    <script type="text/javascript">
+    function resize()
+    {
+        var slide=document.getElementsByClassName("swiper-slide");
+        var container=document.getElementsByClassName("swiper-container")[0];
+        container.style.height=container.offsetWidth*0.55625+"px";
+        for(var i=0;i<slide.length;i++){slide[i].style.height=container.style.height}
+        document.getElementsByClassName("pagination")[0].style.top=container.offsetHeight-25+50+"px";
+
+        var pool = document.getElementsByClassName("pool");
+        for (var i=0;i<pool.length;i++){pool[i].style.height=pool[i].offsetWidth*0.525+"px"};
+    }
+    window.onresize=function(){
+        resize();
+    }
+    window.onload =  function() 
+    {
+        resize();
+        var mySwiper = new Swiper('.swiper-container',
+            {
+                mode:'horizontal',
+                loop: true,
+                pagination: '.pagination',
+                paginationClickable: true,
+                autoplay:3000,
+                speed:500
+            });  
+    }
+    </script>
+</body>
+</html>

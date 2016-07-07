@@ -1,0 +1,24 @@
+*{margin:0; padding:0;}
+body,html,div,ul,li,span,p,input,form,label,a,img,em,dl,dt,dd,textarea,h3,table,th,td,tr,h1{border:none;text-align:left;margin:0;text-indent:0;padding:0;font-size:12px;font-family:"Arial","Microsoft YaHei";list-style:none;font-style:normal;word-break: break-all;word-wrap: break-word;}
+a {text-decoration:none;}
+body {background:#2d2d2d; padding-bottom:50px;}
+            
+.top {position: fixed;z-index: 22;width: 100%;top: 0;left: 0; height:50px; background:#B7591A; text-align:center;}
+.backhome { float:right; background:url(../images/backhome.png) no-repeat center; background-size:40px 40px; width:40px; height:40px; margin-top:5px; margin-right:5px;}
+.back { width:51px; height:21px; background:url(../images/back.png) no-repeat center; background-size:cover; display:inline-block; margin-left:10px; margin-top:14.5px; float:left;}
+.tit { font-size:20px; color:#2d2d2d; line-height:50px;}
+
+.userinfo { width:100%; height:85px; margin-top:50px; position:relative; padding-left:90px; box-sizing:border-box;}
+.userinfo .userhead { width:60px; height:60px; -webkit-border-radius:30px; position:absolute; top:15px; left:15px;}
+.userinfo .num { float:left; font-size:18px; color:#959595; margin-top:20px; width:100%;}
+.userinfo .username { float:left; font-size:18px; color:#ffffff; margin-top:5px; margin-right:5px;}
+.userinfo .noname { float:left; font-size:18px; color:#959595; margin-top:5px;}
+
+.black { width:100%; display:block; float:left; height:50px; background:#1b1b1b; border-bottom:1px solid #131313;}
+.black .leftimg { height:16px; float:left; margin-left:15px; margin-right:16px; margin-top:18px;}
+.black .name {float:left; color:#fff; font-size:18px; margin-top:13px;}
+.black .rightclose { float:right; height:20px; margin-top:15px; margin-right:15px;}
+.black .yright { float:right; height:26px; width:41px; -webkit-border-radius:2px; background:#f6ff00; text-align:center; line-height:26px; font-size:18px; color:#131015; margin-top:12px; margin-right:16px;}
+.black .gright { float:right; text-align:center; line-height:26px; font-size:18px; color:#959595; margin-top:12px; margin-right:16px;}
+
+

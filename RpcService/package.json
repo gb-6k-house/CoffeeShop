@@ -1,0 +1,9 @@
+{
+  "name": "RpcService",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "dnode": "^1.2.2",
+    "log4js": "^0.6.37"
+  }
+}
