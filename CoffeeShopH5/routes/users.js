@@ -13,5 +13,10 @@ router.get("/points", function (req, res) {
 router.get("/my", function (req, res) {
   res.render("user.html");
 });
-
+router.get("/coupon", function (req, res) {
+  res.render("coupon.html");
+});
+router.get("/addtioninfo", function (req, res) {
+  res.render("addtioninfo.html");
+});
 module.exports = router;

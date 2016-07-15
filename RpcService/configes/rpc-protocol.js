@@ -29,6 +29,7 @@ exports.start = function(){
 
     //rpc 发布接口
     var wxserver = DNode({
+        accessToken:weixinRpc.accessToken,
         weixinUser:weixinRpc.weixinUser,
         getPageAuthorize:weixinRpc.getPageAuthorize,
         weixinOpenid:weixinRpc.weixinOpenid

@@ -31,12 +31,14 @@ rpc.callWX(function(remote) {
         console.log('首页授权页面: '+ data);
 
     });
+    remote.getPageAuthorize(wxApp,'http://www.uscreen.online/users/pageAuthorize' ,'2',function(err, data){
+        console.log('首页授权页面: '+ data);
 
+    });
+    remote.accessToken(wxApp, function(err, data){
+        console.log('accessToken: '+ data);
 
-});
-rpc.callCoffeShop(function(remote) {
-    remote.handelWeixinMsg();
-
+    });
 });
 // var pool = db.createPool(ssdb);
 // pool.acquire().set('system_name', 'Coffeeshop');

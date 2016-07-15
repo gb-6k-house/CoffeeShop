@@ -28,13 +28,6 @@ function set(id, key, value, next) {
         settingsConf[id] = {};
     }
     settingsConf[id][key] = value;
-
-    if (id === _base.id && key === "auth")
-    {
-        console.log("settings set value " + value + "| token =" + value.accessToken);
-        _base.token = value.accessToken;
-    }
-
     next();
 }
 

@@ -5,6 +5,42 @@ const logger = process.logger;
 const messages = require('node-weixin-message').messages;
 var reply =require('node-weixin-message').reply;
 
+/**
+ * 创建测试菜单
+ {
+    "button": [
+        {
+            "type": "click",
+            "name": "木柚咖啡",
+            "key": "V1001_CoffeShop",
+            "sub_button": [
+                {
+                    "type": "view",
+                    "name": "192首页",
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxebf2d76f972c42cf&redirect_uri=http%3A%2F%2F192.168.0.192%3A3000%2Fusers%2FpageAuthorize&response_type=code&scope=snsapi_userinfo&state=2#wechat_redirect"
+                },
+                {
+                    "type": "view",
+                    "name": "169首页",
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxebf2d76f972c42cf&redirect_uri=http%3A%2F%2F192.168.0.169%3A3000%2Fusers%2FpageAuthorize&response_type=code&scope=snsapi_userinfo&state=2#wechat_redirect"
+                },
+                {
+                    "type": "view",
+                    "name": "外网首页",
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxebf2d76f972c42cf&redirect_uri=http%3A%2F%2Fwww.uscreen.online%2Fusers%2FpageAuthorize&response_type=code&scope=snsapi_userinfo&state=2#wechat_redirect"
+                },
+                {
+                    "type": "click",
+                    "name": "WIFI",
+                    "key": "my_wifi"
+                }
+            ]
+        }
+    ]
+}
+ */
+
+
 function onText(message, cb) {
     var text = reply.text(message.ToUserName, message.FromUserName, '您好! 这里是木柚咖啡.');
     logger.info('回复用户消息 :' + JSON.stringify(text));
@@ -32,7 +68,7 @@ function location(message,cb ) {
 
 }
 //处理点击菜单拉取消息时的事件
-function OnClick (message,cb) {
+function onClick (message,cb) {
     if (message.EventKey == "my_center") {
 
         var text = reply.text(message.ToUserName, message.FromUserName, '木柚咖啡正为你准备会员大礼包呢🎁🎁🎁\n👯欢迎您到时参与，享有更多超值优惠！');
@@ -64,7 +100,7 @@ function onTemplatesendjobfinish(message,cb) {
 }
 
 exports.handelWeixinMsg = function(weixinmsg, cb) {
-    messages.on.text(OnText);
+    messages.on.text(onText);
 //处理用户订阅
     messages.event.on.subscribe(subscreib);
 //处理用户退订
@@ -77,7 +113,7 @@ exports.handelWeixinMsg = function(weixinmsg, cb) {
     messages.event.on.location(location);
 
 //处理点击菜单拉取消息时的事件
-    messages.event.on.click(onText);
+    messages.event.on.click(onClick);
 
 //处理点击菜单跳转链接时的事件
     messages.event.on.view(onView);

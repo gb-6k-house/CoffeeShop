@@ -122,18 +122,17 @@ function getPageAuthorize(app, url, state, cb){
 /*
  * 公众号获取授权
  * */
-function  auhtorize(app, cb) {
+function accessToken(app, cb) {
     try {
         var _app ={};
         _app.id = app.appid;
         _app.secret = app.secret;
         logger.info('公众号'+JSON.stringify(app)+'获取凭证:');
         wxauth.determine(settting,_app,function () {
-            settings.get(app.id, "auth", function (authData) {
+            settings.get(app.appid, "auth", function (authData) {
                 typeof cb === 'function' && cb(false, authData.accessToken);
             });
         });
-        typeof cb === 'function' && cb(false, oauthUrl);
     }catch (e){
         logger.error(e);
         typeof cb === 'function' && cb(true);
@@ -218,3 +217,4 @@ exports.weixinUser = weixinUser;
 exports.weixinOpenid = weixinOpenid
 exports.createMenu =createMenu;
 exports.deleteMenue =deleteMenue;
+exports.accessToken =accessToken;

@@ -28,18 +28,18 @@
                         <img class = "rightclose" src="/images/wclose.png">
                         <span class="gright">0</span>
                     </div>
-                <a href="/coupon" class="black" style="margin-bottom:15px;">
+               <div class="black" id="coupon">
                        <img class = "leftimg" src="/images/usercenter1.png">
                        <span class = "name">我的优惠券</span>
                        <img class = "rightclose" src="/images/wclose.png">
                        <span class="gright">1</span>
-                   </a>
+               </div>
 
-               <a href="/addtioninfo" class="black" style="margin-bottom:15px;">
+       <div class="black" id="individual">
                         <img class = "leftimg" src="/images/usercenter1.png">
                         <span class = "name">个人资料</span>
                         <img class = "rightclose" src="/images/wclose.png">
-                    </a>
+       </div>
 
                <a href="#" class="black">
                         <img class = "leftimg" src="/images/usercenter1.png">
@@ -59,6 +59,16 @@
            $(function () {
                $("#integral").click(function () {
                    window.location.href = "points";
+               });
+           })
+           $(function () {
+               $("#coupon").click(function () {
+                   window.location.href = "coupon";
+               });
+           })
+           $(function () {
+               $("#individual").click(function () {
+                   window.location.href = "addtioninfo";
                });
            })
        </script>
