@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/routes');
+var weixin = require('./routes/weixin');
+
 //请求数据解析中间件
 var myParser = require('./middleware/mybodyParser');
 var app = express();
@@ -21,7 +23,8 @@ var logger = process.logger;
  */
 app.use(myParser());
 app.use(cookieParser());
-app.use('/main', routes);
+app.use('/api-main', routes);
+app.use('/api-weixin', weixin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,10 +3,12 @@
 /**
  * Module dependencies.
  */
-
+var logger = new require('../../public/logger').init( __dirname +"/../configes/log4js.json");
+process.logger = logger;
 var app = require('../app');
 var debug = require('debug')('CoffeeShopH5:server');
 var http = require('http');
+
 
 /**
  * Get port from environment and store in Express.

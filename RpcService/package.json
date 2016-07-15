@@ -3,7 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "bluebird": "^3.4.1",
     "dnode": "^1.2.2",
-    "log4js": "^0.6.37"
+    "log4js": "^0.6.37",
+    "node-weixin-auth": "^0.6.1",
+    "node-weixin-config": "^0.3.0",
+    "node-weixin-jssdk": "^0.5.0",
+    "node-weixin-message": "^0.1.1",
+    "node-weixin-oauth": "^0.3.0",
+    "node-weixin-settings": "^0.2.1",
+    "ssdb": "^0.3.8"
   }
 }

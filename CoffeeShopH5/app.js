@@ -5,8 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var users = require('./routes/users');
+var session = require ("express-session");
 
 var app = express();
 
@@ -17,16 +18,20 @@ app.engine('html', require('ejs').renderFile);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use (session({
+  secret: 'mooucoffee',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.raw({type:'text/xml'}));
+app.use(bodyParser.raw({type:'text/xml'}));
 
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/',express.static(path.join(__dirname, 'public')));
+app.use('/', index);
 app.use('/users',express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

@@ -4,8 +4,12 @@
  * Module dependencies.
  */
 var confige = require('../configes/confige');
+var dbconfige = require('../configes/dbConfige');
+
 var logger = new require('../../public/logger').init( __dirname +"/../configes/log4js.json");
 process.logger = logger;
+var db = require("../DB/db");
+
 
 // var redis = require('redis');
 // var memDB = redis.createClient(confige.redis.port, confige.redis.ip);
@@ -18,6 +22,10 @@ process.logger = logger;
 
 var rpcServer = require('../configes/rpc-protocol');
 
+
+
+db.init(dbconfige.ssdb);
+logger.info('ssdb 数据库连接成功...');
 rpcServer.start();
 //我们可以uncaughtException来全局捕获未捕获的Error，同时你还可以将此函数的调用栈打印出来，捕获之后可以有效防止node进程退出
 //我们也可以用node-forever 提供了守护的功能和LOG日志记录功能。
