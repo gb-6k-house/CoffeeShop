@@ -15,13 +15,26 @@ exports.pageAuthorize = function(req, res,next) {
         res.send('服务器错误,请重试!');
     }else {
         rpc.callWX(function(remote) {
-            remote.weixinOpenid(confige.wxPublic,req.query.code, function(err, data){
+            remote.weixinOpenid(confige.wxPublic,req.query.code, function(err, openid){
                 if (err) {
                     res.send('服务器错误,请重试!');
                 }else{
                     //session中保存openid
-                    req.session.openid = data.openid;
+                    //res.cookie('openid', openid);
                     if (req.query.state === "1"){
+                        res.redirect("/users/my"+'?openid='+openid);
+
+                    } else if (req.query.state === "2"){
+                        res.redirect("/index"+'?openid='+openid);
+
+                    }else if (req.query.state === "3"){
+                        res.redirect("/vote"+'?openid='+openid)
+
+                    }else{
+                        res.send('服务器错误,请重试!');
+                    }
+
+                    /*if (req.query.state === "1"){
                         res.redirect("/users/my");
 
                     } else if (req.query.state === "2"){
@@ -32,7 +45,7 @@ exports.pageAuthorize = function(req, res,next) {
 
                     }else{
                         res.send('服务器错误,请重试!');
-                    }
+                    }*/
 
                 }
             });

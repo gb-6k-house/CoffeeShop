@@ -1,4 +1,4 @@
-let error = require("../error");
+const logger = process.logger;
 let promise = require("bluebird");
 let db = require("../db/db");
 let md5 = require("../thirdparty/md5");
@@ -41,7 +41,7 @@ function create(openid)
 		{
 			return getcode;
 		}).catch((err)=>{
-			error("[Error]" + err);
+			logger.error("[Error]" + err);
 			return -1;
 		});
 	});
@@ -69,7 +69,7 @@ function get(openid)
 		return getcode;
 	}).catch ((err)=>	
 	{
-		error ("[Error]" + err);
+		logger.error ("[Error]" + err);
 		return -1;
 	});
 }
@@ -93,7 +93,7 @@ module.exports = {
 	{
 		if (openid == null)
 		{
-			error ("[Error] Coupon Get Fail, openid is empty");
+			logger.error ("[Error] Coupon Get Fail, openid is empty");
 			return promise.resolve(-1);
 		}
 		else
@@ -104,7 +104,7 @@ module.exports = {
 	{
 		if (code == null)
 		{
-			error ("[Error] Coupon Check Fail, code is empty");
+			logger.error ("[Error] Coupon Check Fail, code is empty");
 			return promise.resolve(-1);
 		}
 		else

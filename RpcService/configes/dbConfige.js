@@ -9,7 +9,7 @@ exports.password = '123456';
 exports.database = 'mysqlsample1';
 exports.dbport = 3306;
 exports.ssdb ={
-    host:'www.uscreen.online',
+    host:'114.215.149.97',
     port:8888
 };
 

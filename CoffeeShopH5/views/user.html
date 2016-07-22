@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="en">
+<html >
 <head>
     <head>
         <title>木柚咖啡</title>
@@ -10,14 +10,14 @@
        <link rel="stylesheet" href="/stylesheets/base.css">
     </head>
 <body>
-       <div class="top">
-                <a href="/index.html" class="back"></a>
+       <div class="top"  onclick="history.go(-1)">
+                <a class="back"></a>
                <span class = "tit">个人中心</span>
-           <a href="/index.html" class="backhome"></a>
+           <a  class="backhome"></a>
 
        </div>
                <div class="userinfo" >
-                       <img class="userhead" src="/images/userhead.png">
+                       <img class="userhead" src="/images/userhead.png" id="icon">
                    <span class="num">尊贵会员</span>
                         <span class="username" id="name" >Spill</span>
                     </div>
@@ -55,7 +55,31 @@
 
        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
        <script type="text/javascript" src="/javascripts/public.js"></script>
-       <script>
+
+       <script type="text/javascript" language="javascript">
+           $(function () {
+               var data = {"openid": decodeURIComponent(getCookie("weixin_id"))};
+               var urladdress = getServiceUrl() +'/api-weixin/userInfo';
+               $.ajax({
+                   type: "POST",
+                   dataType: "json",
+                   url: urladdress,
+                   contentType: "text/plain;charset=UTF-8",
+                   data: JSON.stringify(data),
+                   success: function (obj) {
+                       if (obj.code === 0) {
+                           $('#name').text(obj.data.nickname);
+                           $("#icon").attr("src",obj.data.headimgurl);
+                       }
+                   },
+                   error:function(e){
+                       alert('操作失败,稍后再试');
+                   }
+
+               })
+           })
+
+
            $(function () {
                $("#integral").click(function () {
                    window.location.href = "points";
@@ -71,6 +95,7 @@
                    window.location.href = "addtioninfo";
                });
            })
+
        </script>
 
 </body>

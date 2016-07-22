@@ -19,4 +19,5 @@ router.get("/coupon", function (req, res) {
 router.get("/addtioninfo", function (req, res) {
   res.render("addtioninfo.html");
 });
+
 module.exports = router;

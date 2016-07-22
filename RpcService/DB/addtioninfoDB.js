@@ -1,4 +1,4 @@
-let error = require ("../error");
+const logger = process.logger;
 let promise = require("bluebird");
 let db = require("../db/db");
 
@@ -18,7 +18,7 @@ function getAddtionInfo (openid)
 			return JSON.parse(info);
 		}
 	}).catch ((err)=>{
-		error("[Error] User getAddtionInfo Fail, error is "+ err);
+		logger.error("[Error] User getAddtionInfo Fail, logger.error is "+ err);
 		return -1;
 	});
 }
@@ -34,7 +34,7 @@ function addAddtionInfo (openid, addtionInfo)
 		}
 		/*else
 		{
-			error ("[Error] User addAddtionInfo Fail, user already have data");
+			logger.error ("[Error] User addAddtionInfo Fail, user already have data");
 			return 0;
 		}*/
 	});
@@ -51,7 +51,7 @@ function changeAddtionInfo (openid, addtionInfo)
 		}
 		else
 		{
-			error ("[Error] User changeAddtionInfo Fail, user don't have data");
+			logger.error ("[Error] User changeAddtionInfo Fail, user don't have data");
 			return 0;
 		}
 	});
@@ -62,7 +62,7 @@ module.exports = {
 	{
 		if (openid == null)
 		{
-			error ("[Error] User GetAddtionInfo Fail, openid is empty");
+			logger.error ("[Error] User GetAddtionInfo Fail, openid is empty");
 			return promise.resolve(-1);
 		}
 
@@ -73,13 +73,13 @@ module.exports = {
 	{
 		if (openid == null)
 		{
-			error ("[Error] User AddAddtionInfo Fail, openid is empty");
+			logger.error ("[Error] User AddAddtionInfo Fail, openid is empty");
 			return promise.resolve(-1);
 		}
 
 		if (addtionInfo == null)
 		{
-			error ("[Error] User AddAddtionInfo Fail, AddtionInfo is Empty");
+			logger.error ("[Error] User AddAddtionInfo Fail, AddtionInfo is Empty");
 			return promise.resolve(-2);
 		}
 
@@ -91,7 +91,7 @@ module.exports = {
 					return 1;
 				case 0:
 					{
-						error ("[Error] User AddAddtionInfo Fail, addAddtionInfo Error");
+						logger.error ("[Error] User AddAddtionInfo Fail, addAddtionInfo Error");
 						return 0;
 					}
 			}
@@ -102,13 +102,13 @@ module.exports = {
 	{
 		if (openid == null)
 		{
-			error ("[Error] User AddAddtionInfo Fail, openid is empty");
+			logger.error ("[Error] User AddAddtionInfo Fail, openid is empty");
 			return promise.resolve(-1);
 		}
 
 		if (addtionInfo == null)
 		{
-			error ("[Error] User AddAddtionInfo Fail, AddtionInfo is Empty");
+			logger.error ("[Error] User AddAddtionInfo Fail, AddtionInfo is Empty");
 			return promise.resolve(-2);
 		}
 

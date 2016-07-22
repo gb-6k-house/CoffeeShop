@@ -9,7 +9,7 @@ const logger = process.logger;
 
 exports.call = function (f) {
     try {
-        DNode.connect(confige.rpchost.port, function (remote) {
+        DNode.connect(confige.rpchost.ip,confige.rpchost.port, function (remote) {
             f(remote);
         });
     } catch (e) {
@@ -21,7 +21,7 @@ exports.call = function (f) {
 exports.callWX = function (f) {
     try {
 
-        DNode.connect(confige.wxrpchost.port, function (remote) {
+        DNode.connect(confige.wxrpchost.ip,confige.wxrpchost.port, function (remote) {
             f(remote);
         });
     } catch (e) {
@@ -31,7 +31,7 @@ exports.callWX = function (f) {
 exports.callCoffeShop = function (f) {
     try {
 
-        DNode.connect(confige.coffeeShopchost.port, function (remote) {
+        DNode.connect(confige.coffeeShopchost.ip,confige.coffeeShopchost.port, function (remote) {
             f(remote);
         });
     } catch (e) {

@@ -4,7 +4,6 @@
 const logger = process.logger;
 const messages = require('node-weixin-message').messages;
 var reply =require('node-weixin-message').reply;
-
 /**
  * 创建测试菜单
  {
@@ -82,7 +81,7 @@ function onClick (message,cb) {
         typeof cb === 'function' && cb(text);
     }
     else if (message.EvenKey = "my_wifi") {
-        var text = reply.text(message.ToUserName, message.FromUserName, '账号 / Account：Mooucoffee\n密码 / Password：mooucoffee');
+        var text = reply.text(message.ToUserName, message.FromUserName, '账号 Account：Mooucoffee\n密码 Password：mooucoffee');
         logger.info('回复用户消息 :' + JSON.stringify(text));
         typeof cb === 'function' && cb(text);
     }else{
@@ -93,10 +92,12 @@ function onClick (message,cb) {
 
 //处理点击菜单跳转链接时的事件
 function onView (message,cb) {
+    typeof cb === 'function' && cb('');
 }
 
 //处理模块消息发送事件
 function onTemplatesendjobfinish(message,cb) {
+    typeof cb === 'function' && cb('');
 }
 
 exports.handelWeixinMsg = function(weixinmsg, cb) {
