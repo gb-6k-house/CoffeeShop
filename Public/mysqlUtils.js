@@ -43,6 +43,7 @@ module.exports = function(confige){
     function querySql(sql,callback){
         pool.getConnection(function(err,conn){
             if(err){
+                console.error(err);
                 callback(err,null,null);
             }else{
                 console.log(sql);

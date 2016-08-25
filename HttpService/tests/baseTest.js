@@ -16,7 +16,7 @@ Base.request=function(method, path, data){
         path:path,
         headers:{
             "Content-Type": 'charset=UTF-8',
-            "encrypt":1
+            "encrypt":0
             //"Content-Length": JSON.stringify(data).length
         }
     }
@@ -38,8 +38,8 @@ Base.request=function(method, path, data){
     }).on('error', function(e) {
         console.log("post error: " + e.message);
     })
-    //req.write(JSON.stringify(data));
-    req.write(enData);
+    req.write(JSON.stringify(data));
+    //req.write(enData);
     // req.write(JSON.stringify(data));
    // req.writeBody(enData);
     req.end();

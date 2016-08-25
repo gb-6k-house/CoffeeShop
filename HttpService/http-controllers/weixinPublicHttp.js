@@ -16,7 +16,6 @@ const logger = process.logger;
 
 //let wechatApp = new wechat.WechatApp('wxebf2d76f972c42cf', '016be2b559c914a9ae1e28e9b6788c90',logger);
 
-
 /*
 
  消息列表

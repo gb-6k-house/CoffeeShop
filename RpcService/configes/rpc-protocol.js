@@ -12,6 +12,7 @@ var confige = require('../configes/confige');
 var mainRpc = require('../rpc-controllers/mainRpc');
 var weixinRpc = require('../rpc-controllers/weixinPublicRpc');
 var coffeShopRpc = require('../rpc-controllers/CoffeeShopRpc');
+var xiajieRpc = require('../rpc-controllers/xiajieRpc');
 
 var DNode = require('dnode');
 function onError(error) {
@@ -43,5 +44,13 @@ exports.start = function(){
     }).listen(confige.coffeeShopchost.port);
 
     coffeShopserver.on('error', onError);
+
+    //rpc 发布接口
+    var xiajieServer = DNode({
+        homeProductList:xiajieRpc.homeProductList,
+        getProductClassify:xiajieRpc.productClassify
+    }).listen(confige.xiajiehost.port);
+
+    xiajieServer.on('error', onError);
 
 }

@@ -10,6 +10,7 @@ exports.redis={'port':6379, 'ip':'127.0.0.1'};
 exports.rpchost={'port':6002, 'ip':'127.0.0.1'};
 exports.wxrpchost={'port':6003, 'ip':'127.0.0.1'};
 exports.coffeeShopchost={'port':6004, 'ip':'127.0.0.1'};
+exports.xiajiehost={'port':6005, 'ip':'127.0.0.1'};
 
 exports.friendsCircle = 500.00; //定义朋友圈的距离 500m
 

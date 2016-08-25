@@ -9,6 +9,6 @@ home.prototype = new test(); //建立原型链
 
 var homeTest = new home();
 
-homeTest.POST('/main/hello', {location:{longitude:0.0, latitude:0.0}, IMEI:'868942028136517'});
+homeTest.POST('/api-main/hello', {location:{longitude:0.0, latitude:0.0}, IMEI:'868942028136517'});
 
 

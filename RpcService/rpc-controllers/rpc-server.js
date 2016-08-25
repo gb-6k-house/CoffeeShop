@@ -38,3 +38,13 @@ exports.callCoffeShop = function (f) {
         logger.error(e);
     }
 }
+exports.callXiaJServer = function (f) {
+    try {
+
+        DNode.connect(confige.xiajiehost.ip,confige.xiajiehost.port, function (remote) {
+            f(remote);
+        });
+    } catch (e) {
+        logger.error(e);
+    }
+}

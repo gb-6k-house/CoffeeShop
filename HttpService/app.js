@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/routes');
 var weixin = require('./routes/weixin');
+var xiajie = require('./routes/xiajie');
 
 //请求数据解析中间件
 var myParser = require('./middleware/mybodyParser');
@@ -23,6 +24,8 @@ var logger = process.logger;
  */
 app.use(myParser());
 app.use(cookieParser());
+
+app.use('/api-xiajie', xiajie);
 app.use('/api-main', routes);
 app.use('/api-weixin', weixin);
 
