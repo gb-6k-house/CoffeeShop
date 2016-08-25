@@ -1,4 +1,14 @@
 /*
+创建用户
+CREATE USER 'liukai'@'localhost' IDENTIFIED BY '123456';
+CREATE USER 'liukai'@'%' IDENTIFIED BY '123456';
+授权
+ GRANT CREATE,SELECT,INSERT,UPDATE ON mysqlsample1.* TO 'liukai'@'%';
+ GRANT CREATE,SELECT,INSERT,UPDATE ON mysqlsample1.* TO 'liukai'@'localhost';
+*/
+
+
+/*
  创建数据库 CREATE DATABASE `mysqlsample1` CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
 */
 
@@ -61,5 +71,26 @@ delimiter;
 */
 alter table t_user add platform varchar(88) default 'android';
 
+
+/*
+*霞姐饺子私厨，商品信息表
+
+*/
+
+create table if not EXISTS t_xj_product(
+	id int(5)  primary key  not null auto_increment,
+    name VARCHAR(80),
+    detail VARCHAR(255),
+    price double,
+    logoImage VARCHAR(255)
+);
+/*
+*插入商品数据http://7xs6h1.com1.z0.glb.clouddn.com/3ac79f3df8dcd100472c0d0e748b4710b9122f69.jpg
+*/
+insert into t_xj_product(name,detail,price,logoImage) values('手工速冻饺子',
+  '霞姐速冻饺子坚持选用绿色,新鲜的果蔬和肉类,地道、天然的调料和辅料,致力把产品做到原汁原味,坚决抵制和添加防腐剂、香精等添加剂。',
+  0.0,
+  '3ac79f3df8dcd100472c0d0e748b4710b9122f69.jpg');
 commit;
+
 
