@@ -78,10 +78,10 @@ alter table t_user add platform varchar(88) default 'android';
 */
 
 create table if not EXISTS t_xj_product(
-	id int(5)  primary key  not null auto_increment,
+	id int  primary key  not null auto_increment,
     name VARCHAR(80),
     detail VARCHAR(255),
-    price double,
+    price int,
     logoImage VARCHAR(255)
 );
 /*
@@ -91,6 +91,49 @@ insert into t_xj_product(name,detail,price,logoImage) values('手工速冻饺子
   '霞姐速冻饺子坚持选用绿色,新鲜的果蔬和肉类,地道、天然的调料和辅料,致力把产品做到原汁原味,坚决抵制和添加防腐剂、香精等添加剂。',
   0.0,
   '3ac79f3df8dcd100472c0d0e748b4710b9122f69.jpg');
+
+/*
+商品分类信息表
+t_xj_productClassify
+*/
+create table if not EXISTS t_xj_productClassify(
+    id  int not null, /*id*/
+    level int,
+	parent_id int  not null default -1,
+    name VARCHAR(80),
+    price int,
+    unit VARCHAR(2)
+);
+/*饺子类*/
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(100,0,-1,'饺子类',0,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(101,1,100,'韭菜肉馅饺',400,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(102,1,100,'白菜肉馅饺',400,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(103,1,100,'芹菜肉馅饺',400,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(104,1,100,'香菜肉馅饺',400,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(105,1,100,'韭菜鸡蛋饺',400,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(106,1,100,'香菇肉馅饺',500,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(107,1,100,'大葱肉馅饺',500,'两');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(108,1,100,'牛肉馅饺',600,'两');
+/*面食类*/
+
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(200,0,-1,'面食类',0,'--');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(201,1,200,'葱油饼',500,'个');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(202,1,200,'甜饼',500,'个');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(203,1,200,'韭菜盒子',800,'个');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(204,1,200,'肉馅饼',1000,'个');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(205,1,200,'牛肉馅饼',1500,'个');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(206,1,200,'炸酱面',800,'碗');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(207,1,200,'青椒鸡蛋面',1200,'碗');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(208,1,200,'西红柿鸡蛋面',1200,'碗');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(209,1,200,'青椒牛肉面',1500,'碗');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(210,1,200,'青椒肉炒面',1500,'碗');
+insert into t_xj_productClassify(id,level,parent_id,name,price,unit) values(211,1,200,'牛肉炒面',2000,'碗');
+
+/*
+插入饺子分类
+*/
+
+
 commit;
 
 
